@@ -2,10 +2,10 @@
 
 ## **Team**
 ### Coordinator: Sorin Iftene
-  1. Leonte Robert -
-  2. Palade Robert-Eusebiu -
-  3. Cazan Alexandru-Gabriel -
-  4. Nicoria Alexandru-Florin -
+  1. Leonte Robert - robertleonte7@gmail.com
+  2. Palade Robert-Eusebiu - palade.robert99@gmail.com
+  3. Cazan Alexandru-Gabriel - alex.cazan03@yahoo.com
+  4. Nicoria Alexandru-Florin - nicoriaflorin17@gmail.com
  
 ### Coordinator: Adrian Iftene
   1. Frentz Robert - frentzrobert98@gmail.com
