@@ -13,4 +13,4 @@
 
 ## **Useful Links**
 * Trello: https://trello.com/b/0VMlfhUb/private-statistics
-* State-of-the-Art: https://docs.google.com/document/d/1L5rv49mrhyc_4vN9XgjxgRd3hmJIrTCaE-rg1wloct4/edit
+* Portal: https://docs.google.com/document/d/1L5rv49mrhyc_4vN9XgjxgRd3hmJIrTCaE-rg1wloct4/edit
