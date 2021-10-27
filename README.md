@@ -12,5 +12,6 @@
 
 
 ## **Useful Links**
+Weekly work report can be found on the google docs
 * Trello: https://trello.com/b/0VMlfhUb/private-statistics
 * Portal: https://docs.google.com/document/d/1L5rv49mrhyc_4vN9XgjxgRd3hmJIrTCaE-rg1wloct4/edit
