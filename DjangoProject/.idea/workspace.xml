@@ -2,26 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90f9f9e9-de4c-4332-bc65-9876eb066d53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.RData" beforeDir="false" afterPath="$PROJECT_DIR$/../.RData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/../.Rhistory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Download bot/download_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Download bot/download_bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../forecast_london.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../forecast_losangeles.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london-2016-1-2020-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_2016-3-2020-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_data_plot.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_forecast.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_nnar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_nnetar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_prediction.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_stlf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../london_stlf1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DjangoApp" />
   </component>
   <component name="RunManager">
     <configuration name="djangoProject" type="Python.DjangoServer" factoryName="Django server">
@@ -73,6 +71,7 @@
       <workItem from="1635084495419" duration="4645000" />
       <workItem from="1635181900222" duration="1877000" />
       <workItem from="1635262772872" duration="105000" />
+      <workItem from="1635694387028" duration="1888000" />
     </task>
     <servers />
   </component>
@@ -80,10 +79,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1635262872725">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1635695897116">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1635262872725" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1635695897116" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1635088253332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
