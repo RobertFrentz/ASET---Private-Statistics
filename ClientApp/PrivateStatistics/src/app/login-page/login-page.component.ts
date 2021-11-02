@@ -7,13 +7,16 @@ import { LoginPageFacade } from './login-page-facade.service';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent{
+export class LoginPageComponent implements OnInit{
 
-  loginResponse: boolean | undefined;
+  loginResponse: boolean = false;
+  title: string = "";
 
-  constructor(
-    private loginPageFacade: LoginPageFacade
-    ) {}
+  constructor(private loginPageFacade: LoginPageFacade) {}
+
+  ngOnInit(): void {
+      this.title = 'Login';
+  }
 
   @Input() error: string | undefined;
 
@@ -26,10 +29,15 @@ export class LoginPageComponent{
 
   submit() {
     if (this.loginForm.valid) {
-      this.loginPageFacade.loginPageService.getLoginValidation('Costel', 'Mirel').subscribe( response => {
-          this.loginResponse = response;
-      })
+      this.getLoginResponse(this.loginForm.value['username'], this.loginForm.value['password']);
     }
+  }
+
+
+   getLoginResponse(username: string, password: string): void{
+      this.loginPageFacade.loginPageService.getLoginValidation(username, password).subscribe( response => {
+          this.loginResponse = response;
+      });
   }
 
 }

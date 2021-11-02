@@ -1,8 +1,8 @@
-import { Inject, Injector } from "@angular/core";
+import { Injectable, Injector } from "@angular/core";
 import { LoginPageService } from "../services/login-page.service";
 import { NumberFormatService } from "../services/number-format.service";
 
-@Inject({
+@Injectable({
   providedIn: 'root'
 })
 export class LoginPageFacade {

@@ -1,12 +1,13 @@
 :host {
   display: flex;
   justify-content: center;
-  margin: 100px 0px;
+  padding-top: 100px;
 }
 
 .mat-form-field {
   width: 100%;
   min-width: 300px;
+  //min-height: 200px;
 }
 
 mat-card-title,
