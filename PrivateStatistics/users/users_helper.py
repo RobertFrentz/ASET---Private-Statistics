@@ -1,3 +1,4 @@
+from users.hash_generator import HashGenerator
 from users.models import User
 
 
@@ -20,7 +21,7 @@ class UsersHelper:
 
         user_data = {
             'username': username,
-            'password': password,
+            'password': HashGenerator.generate_sha256_hash(password),
             'email': email,
         }
         return user_data, 1
@@ -37,7 +38,7 @@ class UsersHelper:
             return 'Password is required', -1
         user_data = {
             'username': username,
-            'password': password
+            'password': HashGenerator.generate_sha256_hash(password)
         }
         return user_data, 1
 
@@ -47,3 +48,17 @@ class UsersHelper:
         if not user.exists():
             return -1
         return 1
+
+    @staticmethod
+    def check_existent_mail(request_data):
+        user = User.objects.filter(email=request_data['email'])
+        if not user.exists():
+            return 1
+        return -1
+
+    @staticmethod
+    def check_existent_username(request_data):
+        user = User.objects.filter(username=request_data['username'])
+        if not user.exists():
+            return 1
+        return -1
