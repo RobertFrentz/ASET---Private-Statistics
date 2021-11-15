@@ -8,14 +8,20 @@ class UsersHelper:
     def create_data(request_data):
         try:
             username = request_data['username']
+            if not username:
+                raise KeyError
         except KeyError:
             return 'Username is required', -1
         try:
             password = request_data['password']
+            if not password:
+                raise KeyError
         except KeyError:
             return 'Password is required', -1
         try:
             email = request_data['email']
+            if not email:
+                raise KeyError
         except KeyError:
             return 'Email is required', -1
 
@@ -30,10 +36,14 @@ class UsersHelper:
     def create_login_data(request_data):
         try:
             username = request_data['username']
+            if not username:
+                raise KeyError
         except KeyError:
             return 'Username is required', -1
         try:
             password = request_data['password']
+            if not password:
+                raise KeyError
         except KeyError:
             return 'Password is required', -1
         user_data = {
