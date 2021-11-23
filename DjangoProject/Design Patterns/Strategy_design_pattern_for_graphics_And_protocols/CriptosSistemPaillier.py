@@ -1,7 +1,9 @@
 import math
 import random
+
 from Crypto.Util import number
-from sympy.ntheory import discrete_log
+import fractions
+from TCR import TCR
 
 
 class CriptosistPaillier:
@@ -63,39 +65,40 @@ class CriptosistPaillier:
         n_at_s = pow(n, s)
         n_at_s_p1 = pow(n, s + 1)
 
-        return (pow(g, plaintext, n_at_s_p1) * pow(random_seed, n_at_s, n_at_s_p1)) % (n_at_s_p1)
+        return (pow(g, plaintext, n_at_s_p1) * pow(random_seed, n_at_s, n_at_s_p1)) % n_at_s_p1
 
-    def decriptarePaillier(self, share, criptotext, nr_serv, verif_key, u, n, s):
-
-        # print("Decriptez...")
+    def decriptarePaillier(self, share, criptotext, nr_serv, n, s):
 
         delta = math.factorial(nr_serv)
 
-        exponent = delta * share*2
+        exponent = delta * share * 2
         modulus = pow(n, s + 1)
         c_i = pow(criptotext, exponent, modulus)
 
-        # print(c_i)
+        print(c_i)
 
         return c_i
 
     def lamda_calculation(self, nr_serv, indexes, index):
         delta = math.factorial(nr_serv)
         produs = delta
+        fraction_result = fractions.Fraction(1, 1)
+        fractionss = []
         for i in indexes:
             if i != index:
-                val = -index // (index - i)
-                produs *= val
-        return produs
+                fractionss.append(fractions.Fraction(-i, index - i))
+        for item in fractionss:
+            fraction_result *= item
+        return fraction_result * produs
 
     def c_prim_calculation(self, nr_serv, indexes, cryptotexts, n, s):
         produs = 1
         modulus = pow(n, s + 1)
         for i in indexes:
             lamda_i = self.lamda_calculation(nr_serv, indexes, i)
-            produs *= pow(cryptotexts[i - 1], 2 * lamda_i, modulus)
-            produs %= modulus
-        return produs
+            lamda_i *= 2
+            produs *= pow(cryptotexts[i - 1], int(lamda_i), modulus)
+        return produs % modulus
 
     def exponent_calculation(self, n, c_prim, s):
         i = 0
@@ -107,32 +110,11 @@ class CriptosistPaillier:
                 modul = pow(n, j)
                 i -= 1
                 t_2 = (t_2 * i) % modul
-                t_1 = t_1 - (t_2 * pow(n, k - 1, modul)) * pow(math.factorial(k), -1, modul)
+                t_1 = t_1 - (t_2 * pow(n, k - 1)) * pow(math.factorial(k), -1, modul)
                 t_1 %= modul
             i = t_1
         return i
 
-    def generareSirDeBiti(self, lungime):
-
-        sir = ""
-
-        for i in range(0, lungime):
-            sir += str(random.randint(0, 1))
-
-        return sir
-
-    def gen_d_value(self, m, n, s):
-
-        x = (pow(n, s) + 1) * pow(m, -1, pow(n, s))
-        d = x * m
-
-        # print(d % pow(n, s) == 1)
-        # print(d % m == 0)
-        # print(d)
-        # print(n)
-        # print(m)
-
-        return d
 
     def gen_coeficienti(self, m, n, s, d, k):
         coeficienti = [d]
@@ -170,30 +152,33 @@ class CriptosistPaillier:
 
 
 obiect = CriptosistPaillier()
+tcr = TCR()
 parametrii = obiect.setup(1)
-n = 77
-m = 15
+n = parametrii[0]
+m = parametrii[5]
 u = parametrii[4]
-g = 78
+g = n+1
 s = 1
-d = obiect.gen_d_value(m, n, s)
-print("D: " + str(d))
+a = [0, 1]
+m_list = [m, pow(n, s)]
+d = tcr.chinese_remainder(m_list, a)
 shares = obiect.split_shares(4, n, d, m, 3, s)
-verif_val = obiect.split_verif_values(u, 4, shares, n, s)
-
-# obiect.decriptarePaillier(shares[0], 100, 4, verif_val[0], u, n, 2)
-obiect.lamda_calculation(4, [1, 2, 3], 2)
-cryptotext = obiect.criptarePaillier(10, n, g, 3, s)
-c_1 = obiect.decriptarePaillier(shares[0], cryptotext, 4, verif_val[0], u, n, s)
-c_2 = obiect.decriptarePaillier(shares[1], cryptotext, 4, verif_val[1], u, n, s)
-c_3 = obiect.decriptarePaillier(shares[2], cryptotext, 4, verif_val[2], u, n, s)
-delta_patrat = pow(math.factorial(4), 2)
+for share in shares:
+    print("Share: " + str(share))
+M = 124121
+cryptotext = obiect.criptarePaillier(M, n, g, obiect.gen_random_seed(n,s), s)
+c_1 = obiect.decriptarePaillier(shares[0], cryptotext, 3, n, s)
+c_2 = obiect.decriptarePaillier(shares[1], cryptotext, 3,  n, s)
+c_3 = obiect.decriptarePaillier(shares[2], cryptotext, 3,  n, s)
+c_4 = obiect.decriptarePaillier(shares[3], cryptotext, 3,  n, s)
+delta_patrat = pow(math.factorial(3), 2)
 print("Criptotext: " + str(cryptotext))
 
-c_prim = obiect.c_prim_calculation(4, [1, 2, 3], [c_1, c_2, c_3], n, s)
+c_prim = obiect.c_prim_calculation(3, [1, 2, 3], [c_1, c_2, c_3], n, s)
 
 print("C_prim: " + str(c_prim))
 print("Verificare: " + str(pow(cryptotext, 4 * delta_patrat * d, pow(n, s + 1))))
-exponent = obiect.exponent_calculation(77, c_prim, s)
+print("Verificare 2: " + str(pow(n + 1, 4 * delta_patrat * M, pow(n, s + 1))))
+exponent = obiect.exponent_calculation(n, c_prim, s)
 
 print((exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s))
