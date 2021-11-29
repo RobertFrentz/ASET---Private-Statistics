@@ -56,19 +56,51 @@ while True:
     r = int(bit_String,2)
     if (r < a): break
 
-x=5
+x=12
 modulRed= ModuloReduction(n,g,random_seed,s,4,3,r,x,a)
 l_s=modulRed.generate_l_s()
 l_x=int.bit_length(x)
-print(modulRed.generate_s_i(l_s,l_x))
-print("R final: " + str(r))
+
+S_i_list = []
+for i in range(0,4):
+   S_i_list.append(modulRed.generate_s_i(l_s,l_x))
+
+
+x_prime = modulRed.compute_x_at_step_2(S_i_list)
 
 
 
 
+cryptotexts_list = [obiect.decriptarePaillier(shares[0],x_prime,4,n,s),
+obiect.decriptarePaillier(shares[1],x_prime,4,n,s),
+obiect.decriptarePaillier(shares[2],x_prime,4,n,s),
+obiect.decriptarePaillier(shares[3],x_prime,4,n,s),
+                    ]
+
+c_prime_for_x_prime = obiect.c_prim_calculation(4,[1,2,3,4],cryptotexts_list,n,s)
+exponent_for_x_prime = obiect.exponent_calculation(n,c_prime_for_x_prime,s)
+x_prime_decrypted = (exponent_for_x_prime  * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s)
+x_second = x_prime_decrypted % a
+x_second_encrypted = obiect.criptarePaillier(x_second,n,g,random_seed,s)
+
+c = 0 if (a-1-x_second) < r == True else 1
+c_encrypted= obiect.criptarePaillier(c,n,g,random_seed,s)
+
+result_encrypted = modulRed.compute_mod_x_A(c_encrypted,x_second_encrypted )
 
 
 
+cryptotexts_list_second = [obiect.decriptarePaillier(shares[0],result_encrypted,4,n,s),
+obiect.decriptarePaillier(shares[1],result_encrypted,4,n,s),
+obiect.decriptarePaillier(shares[2],result_encrypted,4,n,s),
+obiect.decriptarePaillier(shares[3],result_encrypted,4,n,s),
+                    ]
+
+c_prime_for_final_result = obiect.c_prim_calculation(4,[1,2,3,4],cryptotexts_list_second,n,s)
+exponent_for_final_result = obiect.exponent_calculation(n,c_prime_for_final_result,s)
+final_result_decrypted = (exponent_for_final_result  * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s)
+
+print(final_result_decrypted)
 
 
 

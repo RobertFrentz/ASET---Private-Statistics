@@ -16,6 +16,8 @@ class ModuloReduction:
         self.r = r
         self.x = x
         self.a = a
+        self.encrypted_x = self.paillier_encrypt.criptarePaillier(x,n,g,random_seed,s)
+        self.encrypted_r = self.paillier_encrypt.criptarePaillier(r,n,g,random_seed,s)
 
     def generate_l_s(self):
         while True:
@@ -34,4 +36,23 @@ class ModuloReduction:
         s = ""
         for i in range(0, length):
             s += str(random.randint(0, 1))
-        return int(s, 2)
+        return self.paillier_encrypt.criptarePaillier(int(s, 2),self.n,self.g,self.random_seed,self.s)
+
+    def compute_x_at_step_2(self,S_i):
+
+        produs = 1
+        modulus = pow(self.n,self.s+1)
+
+        for i in range(0,len(S_i)):
+            produs *= S_i[i] % modulus
+
+        produs = pow(produs,self.a, modulus)
+
+        return self.encrypted_x * pow(self.encrypted_r,-1,modulus) * produs % modulus
+
+
+
+    def compute_mod_x_A(self,c_encrypted,x_second_encrypted):
+
+
+          return x_second_encrypted * self.encrypted_r * pow(c_encrypted,-self.a,pow(self.n,self.s+1)) % pow(self.n,self.s+1)
