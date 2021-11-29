@@ -12,12 +12,12 @@ class CriptosistPaillier:
 
         # criptosistemul Paillier: generam parametrii pentru criptare/decriptare
 
-        p_prim = number.getPrime(50)
-        q_prim = number.getPrime(50)
+        p_prim = number.getPrime(20)
+        q_prim = number.getPrime(20)
         while not number.isPrime(2 * p_prim + 1):
-            p_prim = number.getPrime(50)
+            p_prim = number.getPrime(20)
         while not number.isPrime(q_prim * 2 + 1):
-            q_prim = number.getPrime(50)
+            q_prim = number.getPrime(20)
         p = 2 * p_prim + 1
         q = 2 * q_prim + 1
         n = p * q
@@ -151,18 +151,10 @@ class CriptosistPaillier:
         return verif_values
 
 
-obiect = CriptosistPaillier()
-tcr = TCR()
-parametrii = obiect.setup(1)
-n = parametrii[0]
-m = parametrii[5]
-u = parametrii[4]
-g = n+1
-s = 1
-a = [0, 1]
-m_list = [m, pow(n, s)]
-d = tcr.chinese_remainder(m_list, a)
-shares = obiect.split_shares(4, n, d, m, 3, s)
+
+
+
+"""
 for share in shares:
     print("Share: " + str(share))
 M = 124121
@@ -182,3 +174,9 @@ print("Verificare 2: " + str(pow(n + 1, 4 * delta_patrat * M, pow(n, s + 1))))
 exponent = obiect.exponent_calculation(n, c_prim, s)
 
 print((exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s))
+"""
+
+
+
+
+
