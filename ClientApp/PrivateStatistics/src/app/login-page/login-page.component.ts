@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginPageFacade } from './login-page-facade.service';
 
@@ -10,6 +10,9 @@ import { LoginPageFacade } from './login-page-facade.service';
 })
 export class LoginPageComponent implements OnInit {
   loginResponse: boolean = false;
+  maxInputSize = 25;
+  readOnlyUsername = false;
+  readOnlyPassword = false;
   title: string = '';
 
   constructor(
@@ -19,6 +22,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'Login';
+    this.onChangingState();
   }
 
   @Input() error: string | undefined;
@@ -26,8 +30,14 @@ export class LoginPageComponent implements OnInit {
   @Output() submitEM = new EventEmitter();
 
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(this.maxInputSize - 1),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(this.maxInputSize - 1),
+    ]),
   });
 
   submit() {
@@ -47,5 +57,25 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       });
+  }
+
+  get username() {
+    return this.loginForm.controls.username;
+  }
+
+  get password() {
+    return this.loginForm.controls.password;
+  }
+  private onChangingState(): void {
+    this.loginForm.controls.username.valueChanges.subscribe((val) => {
+      if (val.length >= this.maxInputSize) {
+        console.log('Maxim username size reached');
+      }
+    });
+    this.loginForm.controls.password.valueChanges.subscribe((val) => {
+      if (val.length >= this.maxInputSize) {
+        console.log('Maxim password size reached');
+      }
+    });
   }
 }

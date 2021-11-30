@@ -1,17 +1,41 @@
 <mat-card>
-  <mat-card-title>{{title}}</mat-card-title>
+  <mat-card-title>{{ title }}</mat-card-title>
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Username" formControlName="username">
+          <input
+            type="text"
+            matInput
+            placeholder="Username"
+            formControlName="username"
+            [maxlength]="maxInputSize"
+          />
         </mat-form-field>
+        <span class="error-message" *ngIf="username.errors?.['required']">
+          Please enter a username
+        </span>
+        <span class="error-message" *ngIf="username.errors?.['maxlength']">
+          Username maximum length reached
+        </span>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Password" formControlName="password">
+          <input
+            type="password"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            [maxlength]="maxInputSize"
+          />
         </mat-form-field>
+        <span class="error-message" *ngIf="password.errors?.['required']">
+          Please enter a password
+        </span>
+        <span class="error-message" *ngIf="password.errors?.['maxlength']">
+          Password maximum length reached
+        </span>
       </p>
 
       <p *ngIf="error" class="error">
@@ -21,7 +45,6 @@
       <div class="button">
         <button type="submit" mat-button>Login</button>
       </div>
-
     </form>
   </mat-card-content>
 </mat-card>
