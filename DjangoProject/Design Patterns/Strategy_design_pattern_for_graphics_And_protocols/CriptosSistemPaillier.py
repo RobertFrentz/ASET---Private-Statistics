@@ -1,7 +1,7 @@
 import math
 import random
 
-from Cryptodome.Util import number
+from Crypto.Util import number
 import fractions
 from TCR import TCR
 
@@ -75,7 +75,7 @@ class CriptosistPaillier:
         modulus = pow(n, s + 1)
         c_i = pow(criptotext, exponent, modulus)
 
-        print(c_i)
+        #print(c_i)
 
         return c_i
 
