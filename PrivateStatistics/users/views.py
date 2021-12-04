@@ -45,3 +45,9 @@ class Login(View):
                 return JsonResponse({'message': 'Username or password not correct'}, status=200)
 
         return JsonResponse({}, status=200)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Statistics(View):
+    def post(self, request):
+        return JsonResponse({}, status=200)
