@@ -16,7 +16,9 @@ s = 1
 exp = [0, 1]
 m_list = [m, pow(n, s)]
 d = tcr.chinese_remainder(m_list, exp)
-shares = obiect.split_shares(4, n, d, m, 3, s)
+nr_serv=4
+k=3
+shares = obiect.split_shares(nr_serv, n, d, m, k, s)
 random_seed = obiect.gen_random_seed(n, s)
 delta_patrat = pow(math.factorial(4), 2)
 

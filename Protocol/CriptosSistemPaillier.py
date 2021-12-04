@@ -1,8 +1,9 @@
 import math
 import random
 
-from Cryptodome.Util import number
+from Crypto.Util import number
 import fractions
+
 from TCR import TCR
 
 
@@ -75,8 +76,6 @@ class CriptosistPaillier:
         modulus = pow(n, s + 1)
         c_i = pow(criptotext, exponent, modulus)
 
-        #print(c_i)
-
         return c_i
 
     def lamda_calculation(self, nr_serv, indexes, index):
@@ -115,7 +114,6 @@ class CriptosistPaillier:
             i = t_1
         return i
 
-
     def gen_coeficienti(self, m, n, s, d, k):
         coeficienti = [d]
         for i in range(0, k - 1):
@@ -150,17 +148,33 @@ class CriptosistPaillier:
 
         return verif_values
 
-    def decryption_sharing(self, ciphertext, n, s, shares,delta_patrat):
-        c_1 = self.decriptarePaillier(shares[0], ciphertext, 4, n, s)
-        c_2 = self.decriptarePaillier(shares[1], ciphertext, 4, n, s)
-        c_3 = self.decriptarePaillier(shares[2], ciphertext, 4, n, s)
-        c_4 = self.decriptarePaillier(shares[3], ciphertext, 4, n, s)
-        c_prim = self.c_prim_calculation(4, [1, 2, 3,4], [c_1, c_2, c_3,c_4], n, s)
+    def decryption_sharing(self, ciphertext, n, s, shares, delta_patrat, nr_serv):
+        c_1 = self.decriptarePaillier(shares[0], ciphertext, nr_serv, n, s)
+        c_2 = self.decriptarePaillier(shares[1], ciphertext, nr_serv, n, s)
+        c_3 = self.decriptarePaillier(shares[2], ciphertext, nr_serv, n, s)
+        c_4 = self.decriptarePaillier(shares[3], ciphertext, nr_serv, n, s)
+        c_prim = self.c_prim_calculation(nr_serv, [1, 2, 3, 4], [c_1, c_2, c_3, c_4], n, s)
         exponent = self.exponent_calculation(n, c_prim, s)
         return (exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s)
 
 
-
+# obiect = CriptosistPaillier()
+# tcr = TCR()
+# parametrii = obiect.setup(1)
+# n = parametrii[0]
+# m = parametrii[5]
+# u = parametrii[4]
+# g = n + 1
+# s = 1
+# exp = [0, 1]
+# m_list = [m, pow(n, s)]
+# d = tcr.chinese_remainder(m_list, exp)
+# k = 3
+# shares = obiect.split_shares(4, n, d, m, k, s)
+# random_seed = obiect.gen_random_seed(n, s)
+# delta_patrat = pow(math.factorial(4), 2)
+# ciphertext = obiect.criptarePaillier(10, n, g, random_seed, s)
+# print(obiect.decryption_sharing(ciphertext, n, s, shares, delta_patrat, 4))
 """
 for share in shares:
     print("Share: " + str(share))
@@ -182,8 +196,3 @@ exponent = obiect.exponent_calculation(n, c_prim, s)
 
 print((exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s))
 """
-
-
-
-
-
