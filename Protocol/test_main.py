@@ -64,7 +64,10 @@ def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat)
 
     modulRed = ModuloReduction(n, g, random_seed, s, 4, 3, r, x, a)
     l_s = modulRed.generate_l_s()
-    l_x = int.bit_length(x)
+
+
+    #aici e bugul dragilor, aparent noi folosim l_x ca lungimea criptarii, si nu a lui x :(
+    l_x = int.bit_length(1+2+3+4+5)
 
     S_i_list = []
     for i in range(0, 4):

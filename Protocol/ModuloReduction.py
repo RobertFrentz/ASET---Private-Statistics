@@ -16,7 +16,6 @@ class ModuloReduction:
         self.r = r
         self.x = x
         self.a = a
-        self.x = self.paillier_encrypt.criptarePaillier(x, n, g, random_seed, s)
         self.encrypted_r = self.paillier_encrypt.criptarePaillier(r, n, g, random_seed, s)
 
     def generate_l_s(self):
