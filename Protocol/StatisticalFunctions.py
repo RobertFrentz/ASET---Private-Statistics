@@ -30,7 +30,7 @@ class StatisticalFunctions:
         # summ=sum(self.values_list)
         product = math.prod(self.values_encrypted) % pow(self.n,self.s+1)
         number_of_elements = len(self.values_list)
-        return test_main.calculate_function(product, number_of_elements, self.n, self.g, self.random_seed, self.s, self.shares, self.obiect, self.delta_patrat,self.nr_serv,self.k)
+        test_main.calculate_function(product, number_of_elements, self.n, self.g, self.random_seed, self.s, self.shares, self.obiect, self.delta_patrat,self.nr_serv,self.k)
 
     def variance(self):
 
