@@ -37,7 +37,7 @@ export class DisplayChartsComponent implements OnInit {
       xAxis: [
         {
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['0-12', '12-24', '24-40', '40-55', '55-75', '75-85', '85+'],
           axisTick: {
             alignWithLabel: true,
           },

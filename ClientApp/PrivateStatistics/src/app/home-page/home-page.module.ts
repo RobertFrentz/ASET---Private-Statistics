@@ -16,6 +16,7 @@ import { DisplayStatisticsComponent } from './statistics/display-statistics/disp
 import { DisplayChartsComponent } from './statistics/display-charts/display-charts.component';
 import { NgxEchartsModule } from "ngx-echarts";
 import { SharedModule } from "../shared/shared.module";
+import { DisplayStatisticLineComponent } from './statistics/display-statistics/display-statistic-line/display-statistic-line.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SharedModule } from "../shared/shared.module";
     StatisticsComponent,
     DisplayStatisticsComponent,
     DisplayChartsComponent,
+    DisplayStatisticLineComponent,
   ],
 })
 export class HomePageModule {}

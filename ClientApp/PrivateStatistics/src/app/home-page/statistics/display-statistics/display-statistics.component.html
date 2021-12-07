@@ -1,4 +1,8 @@
-<p>Mean</p>
-<p>Standard Deviation</p>
-<p>Variance</p>
-<p>Covariance</p>
+<div class="display-statistics-container">
+  <div *ngFor="let statistic of statistics"
+        class="display-statistic-line">
+    <app-display-statistic-line [statisticName]="statistic.name"
+                                [statisticValue]="statistic.value">
+    </app-display-statistic-line>
+  </div>
+</div>
