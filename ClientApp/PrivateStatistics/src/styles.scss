@@ -7,7 +7,28 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-image: url("./assets/background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: local;
+  background-color: #e6effc;
 }
+
+.cdk-overlay-container{
+    .mat-select-panel{
+      background-color: lightblue;
+    }
+    .mat-pseudo-checkbox{
+      background-color: white;
+    }
+
+    .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+      color: white;
+    }
+
+    .mat-option-text{
+      font-size: 18px;
+    }
+  
+  //  .cdk-overlay-pane{
+  //   top: 85px !important;
+  //   left: 100px !important;
+  // }
+}
+

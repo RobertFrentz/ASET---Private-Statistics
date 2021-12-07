@@ -1,0 +1,19 @@
+:host{
+
+  ::ng-deep{
+
+    .mat-form-field{
+    width: 350px;
+    padding-top: 20px;
+    padding-left: 60px;
+
+    .mat-select-value-text{
+      font-size: 20px;
+    }
+    .mat-form-field-label{
+      font-size: 16px;
+    }
+   }
+  }
+}
+  

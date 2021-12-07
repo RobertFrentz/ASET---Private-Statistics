@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoginPageComponent } from './login-page.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
+  declarations: [LoginPageComponent]
 })
 export class LoginModule {}

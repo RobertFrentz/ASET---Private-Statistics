@@ -1,0 +1,9 @@
+<h4>{{dropdownLabel}}</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Type</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let field of fieldsList" [value]="field">
+      {{field}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
