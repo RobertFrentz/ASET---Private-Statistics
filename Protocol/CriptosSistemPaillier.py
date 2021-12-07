@@ -1,7 +1,7 @@
 import math
 import random
 
-from Crypto.Util import number
+from Cryptodome.Util import number
 import fractions
 
 from TCR import TCR

@@ -43,7 +43,7 @@ def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat,
     l_s = modulRed.generate_l_s()
 
     # aici e bugul dragilor, aparent noi folosim l_x ca lungimea criptarii, si nu a lui x :(
-    l_x = int.bit_length(1 + 2 + 3 + 4 + 5)
+    l_x = int.bit_length(1 + 2 + 5 + 4 + 6)
 
     S_i_list = []
     for i in range(0, 4):
@@ -61,4 +61,12 @@ def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat,
 
     final_result_decrypted = obiect.decryption_sharing(result_encrypted, n, s, shares, delta_patrat, nr_serv)
     # print("c value: " + str(c) + " final: " + str(final_result_decrypted))
+
+
+    div = x * pow(result_encrypted,-1,pow(n,s+1))
+    div = pow(div, pow(a,-1,pow(n,s+1) ),pow(n,s+1))
+
+    print(obiect.decryption_sharing(div,n,s,shares,delta_patrat,nr_serv))
+
+
     return final_result_decrypted
