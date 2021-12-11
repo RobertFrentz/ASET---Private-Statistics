@@ -5,6 +5,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from "@angular/platform-browser";
 import { LoginModule } from "../login-page/login.module";
 import { HomePageComponent } from "./home-page.component";
@@ -30,6 +31,7 @@ import { StatisticsHistoryComponent } from './statistics/statistics-history/stat
     MatButtonModule,
     MatSelectModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     LoginModule,
     SharedModule,

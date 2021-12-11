@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StatisticsComponent implements OnInit {
   fieldsList = ['Age', 'BloodType'];
   label = 'Select statistical field';
-
+  isLoading = false;
   constructor() {}
 
   ngOnInit(): void {}
