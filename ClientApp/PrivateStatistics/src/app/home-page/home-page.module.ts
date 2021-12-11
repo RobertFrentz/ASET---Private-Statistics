@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from "@angular/platform-browser";
 import { LoginModule } from "../login-page/login.module";
 import { HomePageComponent } from "./home-page.component";
@@ -17,7 +18,7 @@ import { DisplayChartsComponent } from './statistics/display-charts/display-char
 import { NgxEchartsModule } from "ngx-echarts";
 import { SharedModule } from "../shared/shared.module";
 import { DisplayStatisticLineComponent } from './statistics/display-statistics/display-statistic-line/display-statistic-line.component';
-
+import { StatisticsHistoryComponent } from './statistics/statistics-history/statistics-history.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { DisplayStatisticLineComponent } from './statistics/display-statistics/d
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatTableModule,
     ReactiveFormsModule,
     LoginModule,
     SharedModule,
@@ -44,6 +46,7 @@ import { DisplayStatisticLineComponent } from './statistics/display-statistics/d
     DisplayStatisticsComponent,
     DisplayChartsComponent,
     DisplayStatisticLineComponent,
+    StatisticsHistoryComponent,
   ],
 })
 export class HomePageModule {}

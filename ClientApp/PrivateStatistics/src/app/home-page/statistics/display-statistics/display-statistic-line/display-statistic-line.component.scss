@@ -1,7 +1,16 @@
-span {
-  font-size: 20px;
-  color: black;
+.statistic-display-line{
+  width: 350px;
+  span {
+    font-size: 20px;
+    color: black;
+  }
+
+  span:last-child{
+    float: right;
+  }
 }
+
+
 
 // span:nth-of-type(1){
 //   padding-top: 30px;
