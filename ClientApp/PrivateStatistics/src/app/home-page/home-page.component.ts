@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Hospital } from '../Types/Hospital';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+  selectedHospitalsList: Hospital[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  setCurrentHospitals(hospitals: Hospital[]): void {
+    this.selectedHospitalsList = hospitals;
   }
-
 }

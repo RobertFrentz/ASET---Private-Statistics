@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { StatisticInput } from 'src/app/Models/StatisticInput';
+import { Component, Input, OnInit } from '@angular/core';
+import { StatisticalResult } from 'src/app/Types/StatisticalResult';
 
 @Component({
   selector: 'app-display-statistics',
@@ -7,24 +7,7 @@ import { StatisticInput } from 'src/app/Models/StatisticInput';
   styleUrls: ['./display-statistics.component.scss'],
 })
 export class DisplayStatisticsComponent implements OnInit {
-  statistics: StatisticInput[] = [
-    {
-      name: 'Mean',
-      value: 25.4,
-    },
-    {
-      name: 'Standard Deviation',
-      value: 14,
-    },
-    {
-      name: 'Variance',
-      value: 15,
-    },
-    {
-      name: 'Covariance',
-      value: 225,
-    },
-  ];
+  @Input() statistics: StatisticalResult[] = [];
 
   constructor() {}
 

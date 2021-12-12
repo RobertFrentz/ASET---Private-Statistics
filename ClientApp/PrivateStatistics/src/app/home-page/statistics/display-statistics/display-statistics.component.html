@@ -1,8 +1,8 @@
 <div class="display-statistics-container">
   <div *ngFor="let statistic of statistics"
         class="display-statistic-line">
-    <app-display-statistic-line [statisticName]="statistic.name"
-                                [statisticValue]="statistic.value">
+    <app-display-statistic-line [statisticName]="statistic.functionName"
+                                [statisticValue]="statistic.functionValue">
     </app-display-statistic-line>
   </div>
 </div>

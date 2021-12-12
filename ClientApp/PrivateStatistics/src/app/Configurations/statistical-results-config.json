@@ -1,0 +1,18 @@
+[
+  {
+    "functionName": "Mean",
+    "functionValue": 50
+  },
+  {
+    "functionName": "Standard Deviation",
+    "functionValue": 15
+  },
+  {
+    "functionName": "Variance",
+    "functionValue": 255
+  },
+  {
+    "functionName": "Covariance",
+    "functionValue": 150
+  }
+]

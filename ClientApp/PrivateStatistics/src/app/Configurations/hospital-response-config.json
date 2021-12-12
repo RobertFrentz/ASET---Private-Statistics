@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Arcadia",
+    "fields": [ "Age","BloodType"]
+  },
+  {
+    "name": "Spiridon",
+    "fields": ["Age", "BloodType", "Tension"]
+  },
+  {
+    "name": "Tineretului",
+    "fields": ["Age", "BloodType"]
+  },
+  {
+    "name": "Saint Marie",
+    "fields": ["Age", "BloodType"]
+  }
+]

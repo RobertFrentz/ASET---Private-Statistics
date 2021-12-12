@@ -1,10 +1,9 @@
 <div class="header">
-  <app-multiselect-dropdown></app-multiselect-dropdown>
-  <span class="title">
-    Private Statistics
-  </span>
+  <app-multiselect-dropdown (selectedHospitals)="setCurrentHospitals($event)">
+  </app-multiselect-dropdown>
+  <span class="title"> Private Statistics </span>
   <app-user-info></app-user-info>
 </div>
 <div class="content">
-<app-statistics></app-statistics>
+  <app-statistics [selectedHospitals]="selectedHospitalsList"> </app-statistics>
 </div>

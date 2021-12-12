@@ -2,17 +2,20 @@
   <div class="left-content-header-1">
     <span> Statistics </span>
   </div>
-  <div *ngIf='!isLoading; else loader'>
-  <div class="select-statistic-field-container">
-      <app-select-dropdown [dropdownLabel]="label"
-                           [fieldsList]="fieldsList">
+  <div>
+    <div class="select-statistic-field-container">
+      <app-select-dropdown
+        [dropdownLabel]="label"
+        [fieldsList]="fieldsList"
+        (selectedDrowpdownValue)="computeStatisticalFunctions($event)"
+      >
       </app-select-dropdown>
     </div>
-    <div class="display-statistics-container">
-      <app-display-statistics></app-display-statistics>
+    <div *ngIf="!isLoading; else loader" class="display-statistics-container">
+      <app-display-statistics [statistics]="statistics">
+      </app-display-statistics>
     </div>
   </div>
-  
 </div>
 <div class="right-content">
   <div class="right-content-header">
@@ -23,10 +26,10 @@
 <div class="left-content-2">
   <div class="left-content-header-2">
     <span> History </span>
-    <app-statistics-history>
-    </app-statistics-history>
-</div>
+    <app-statistics-history> </app-statistics-history>
+  </div>
 
-<ng-template #loader>
-  <mat-spinner></mat-spinner>
-</ng-template>
+  <ng-template #loader>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>
