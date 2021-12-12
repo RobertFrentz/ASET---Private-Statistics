@@ -62,7 +62,7 @@ class CriptosistPaillier:
 
         return r
 
-    @paillier_aspect
+    #@paillier_aspect
     def criptarePaillier(self, plaintext, n, g, random_seed, s):
 
         n_at_s = pow(n, s)
@@ -70,7 +70,7 @@ class CriptosistPaillier:
 
         return (pow(g, plaintext, n_at_s_p1) * pow(random_seed, n_at_s, n_at_s_p1)) % n_at_s_p1
 
-    @paillier_aspect
+    #@paillier_aspect
     def decriptarePaillier(self, share, criptotext, nr_serv, n, s):
 
         delta = math.factorial(nr_serv)

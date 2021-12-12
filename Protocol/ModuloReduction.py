@@ -30,7 +30,6 @@ class ModuloReduction:
             #     # print(self.l_s)
             return self.l_s
 
-
     def generate_s_i(self, l_s, l_x):
         length = l_s + l_x
         s = ""
@@ -41,7 +40,7 @@ class ModuloReduction:
     def compute_x_at_step_2(self, S_i):
 
         produs = 1
-        modulus = pow(self.n, self.s+1)
+        modulus = pow(self.n, self.s + 1)
 
         for i in range(0, len(S_i)):
             produs *= S_i[i] % modulus
