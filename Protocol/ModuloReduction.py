@@ -32,10 +32,10 @@ class ModuloReduction:
 
     def generate_s_i(self, l_s, l_x):
         length = l_s + l_x
-        s = ""
+        s_i = ""
         for i in range(0, length):
-            s += str(random.randint(0, 1))
-        return self.paillier_encrypt.criptarePaillier(int(s, 2), self.n, self.g, self.random_seed, self.s)
+            s_i += str(random.randint(0, 1))
+        return self.paillier_encrypt.criptarePaillier(int(s_i, 2), self.n, self.g, self.random_seed, self.s)
 
     def compute_x_at_step_2(self, S_i):
 

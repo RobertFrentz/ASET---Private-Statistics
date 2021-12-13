@@ -3,13 +3,7 @@ from functools import reduce
 
 
 class TCR:
-    def generareSirDeBiti(self, lungime):
-        sir = ""
 
-        for i in range(0, lungime):
-            sir += str(random.randint(0, 1))
-
-        return sir
 
     def chinese_remainder(self, m, a):
         sum = 0

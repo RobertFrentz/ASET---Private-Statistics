@@ -1,7 +1,7 @@
 import math
 import random
 
-from Crypto.Util import number
+from Cryptodome.Util import number
 import fractions
 
 from CryptoAspects.paillier_aspect import paillier_aspect
@@ -32,10 +32,7 @@ class CriptosistPaillier:
         este_inversabil = False
         g = n + 1
         u = 0
-        while not este_zstar:
-            g = random.randint(2, n_at_s - 1)
-            if math.gcd(g, n_at_s) == 1:
-                este_zstar = True
+
 
         while not este_inversabil:
 

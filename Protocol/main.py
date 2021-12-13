@@ -21,7 +21,7 @@ k = 3
 shares = obiect.split_shares(nr_serv, n, d, m, k, s)
 random_seed = obiect.gen_random_seed(n, s)
 delta_patrat = pow(math.factorial(4), 2)
-values = [12, 20, 5, 10]
+values = [1, 2,3, 4]
 statistic = StatisticalFunctions(values, n, g, random_seed, s, shares, obiect, delta_patrat)
 print(statistic.mean())
 print(statistic.standard_deviation())
