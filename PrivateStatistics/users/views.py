@@ -1,12 +1,13 @@
 from django.views import View
 from django.http import JsonResponse
 
+from Protocol.main import statistic
 from users.aspects.users_aspect import users_aspect
 from users.models import User
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+from users.statistics import Statistic
 from users.users_helper import UsersHelper
 
 
@@ -49,5 +50,23 @@ class Login(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Statistics(View):
-    def post(self, request):
-        return JsonResponse({}, status=200)
+    def post(self):
+        pass
+
+    def get(self, request):
+        hospital_name = request.GET.get('name', '')
+        patient_attributes = request.GET.getlist('fields', '')
+        statistical_function = request.GET.get('function', '')
+        print(statistical_function)
+
+        if statistical_function == Statistic.Mean.value:
+            response = statistic.mean()
+        elif statistical_function == Statistic.Variance.value:
+            response = statistic.variance()
+        elif statistical_function == Statistic.StandardDeviation.value:
+            response = statistic.standard_deviation()
+        elif statistical_function == Statistic.StandardError.value:
+            response = statistic.standard_error()
+        else:
+            return JsonResponse({'message': 'There is no such statistical function available'}, status=400)
+        return JsonResponse({'functionName': f'{statistical_function}', 'functionValue': f'{response}'}, status=200)
