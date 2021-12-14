@@ -2,13 +2,13 @@ import {
   Component,
   Input,
   OnChanges,
-  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { first } from 'rxjs/operators';
-import { Hospital } from 'src/app/Types/Hospital';
-import { StatisticalResult } from 'src/app/Types/StatisticalResult';
+import { Hospital } from 'src/app/Types/hospital';
+import { StatisticalResult } from 'src/app/Types/statistical-result';
+import { StatisticsHistory } from 'src/app/Types/statistics-history';
 import { StatisticsService } from './statistics.service';
 
 @Component({
@@ -21,8 +21,10 @@ export class StatisticsComponent implements OnInit, OnChanges {
 
   fieldsList: string[] = [];
   statistics: StatisticalResult[] = [];
+  statisticsHistory: StatisticsHistory[] = [];
   label = 'Select statistical field';
-  isLoading = false;
+  isLoadingStatistics = false;
+  isLoadingHistory = false;
 
   constructor(private readonly statisticsService: StatisticsService) {}
 
@@ -34,20 +36,31 @@ export class StatisticsComponent implements OnInit, OnChanges {
       !changes['selectedHospitals'].isFirstChange()
     ) {
       this.fieldsList = changes['selectedHospitals'].currentValue[0].fields;
+      this.getStatisticsHistory();
     }
   }
 
   computeStatisticalFunctions(field: string): void {
-    this.isLoading = true;
-    setTimeout( () => {
-this.statisticsService
-  .getStatisticsResults(this.selectedHospitals, field)
-  .pipe(first())
-  .subscribe((result) => {
-    this.statistics = result;
-    this.isLoading = false;
-  });
-    }, 1000);
-    
+    this.isLoadingStatistics = true;
+      this.statisticsService
+        .getStatisticsResults(this.selectedHospitals, field)
+        .pipe(first())
+        .subscribe((statistics) => {
+          this.statistics = statistics;
+          this.isLoadingStatistics = false;
+        });
+  }
+
+  getStatisticsHistory(): void {
+    this.isLoadingHistory = true;
+    setTimeout(() => {
+      this.statisticsService
+        .getStatisticsHistory(this.selectedHospitals)
+        .pipe(first())
+        .subscribe((history) => {
+          this.statisticsHistory = history;
+          this.isLoadingHistory = false;
+        });
+    }, 2000);
   }
 }

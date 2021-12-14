@@ -80,12 +80,22 @@
 }
 
 ::ng-deep{
-  .mat-spinner{
-    margin: auto;
-    margin-top: 105px;
-    circle, .mat-spinner circle{
-      stroke: #4bbee3;
-    }
+  .left-content-1{
+    .mat-spinner{
+        margin: auto;
+        margin-top: 105px;
+        circle, .mat-spinner circle{
+          stroke: #4bbee3;
+        }
+      }
   }
-  
+  .left-content-2{
+    .mat-spinner{
+        margin: auto;
+        margin-top: 130px;
+        circle, .mat-spinner circle{
+          stroke: #4bbee3;
+        }
+      }
+  }
 }

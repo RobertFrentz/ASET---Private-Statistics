@@ -11,7 +11,10 @@
       >
       </app-select-dropdown>
     </div>
-    <div *ngIf="!isLoading; else loader" class="display-statistics-container">
+    <div
+      *ngIf="!isLoadingStatistics; else loader"
+      class="display-statistics-container"
+    >
       <app-display-statistics [statistics]="statistics">
       </app-display-statistics>
     </div>
@@ -26,7 +29,13 @@
 <div class="left-content-2">
   <div class="left-content-header-2">
     <span> History </span>
-    <app-statistics-history> </app-statistics-history>
+    <div
+      *ngIf="!isLoadingHistory; else loader"
+      class="display-history-container"
+    >
+      <app-statistics-history [statisticsHistory]="statisticsHistory">
+      </app-statistics-history>
+    </div>
   </div>
 
   <ng-template #loader>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hospital } from '../Types/Hospital';
+import { Hospital } from 'src/app/Types/hospital';
 
 @Component({
   selector: 'app-home-page',

@@ -1,6 +1,12 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Hospital } from 'src/app/Types/Hospital';
+import { Hospital } from 'src/app/Types/hospital';
 import { MultiSelectDropdownService } from './multiselect-dropwdown.service';
 
 @Component({
@@ -9,7 +15,9 @@ import { MultiSelectDropdownService } from './multiselect-dropwdown.service';
   styleUrls: ['./multiselect-dropdown.component.scss'],
 })
 export class MultiselectDropdownComponent implements OnInit, OnDestroy {
-  @Output() selectedHospitals: EventEmitter<Hospital[]> = new EventEmitter<Hospital[]>();
+  @Output() selectedHospitals: EventEmitter<Hospital[]> = new EventEmitter<
+    Hospital[]
+  >();
 
   hospitalsList: Hospital[] = [];
   hospitalsFormControl = new FormControl();
@@ -35,6 +43,8 @@ export class MultiselectDropdownComponent implements OnInit, OnDestroy {
 
   onTogglePanel(): void {
     this.isSelectionPanelClosed = !this.isSelectionPanelClosed;
-    this.isSelectionPanelClosed && this.hospitalsFormControl.value? this.selectedHospitals.emit(this.hospitalsFormControl.value) : null;
+    this.isSelectionPanelClosed && this.hospitalsFormControl.value
+      ? this.selectedHospitals.emit(this.hospitalsFormControl.value)
+      : null;
   }
 }

@@ -1,19 +1,36 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-select-dropdown',
   templateUrl: './select-dropdown.component.html',
   styleUrls: ['./select-dropdown.component.scss'],
 })
-export class SelectDropdownComponent implements OnInit {
-  @Input() dropdownLabel: string = "default";
+export class SelectDropdownComponent implements OnInit, OnChanges {
+  @Input() dropdownLabel: string = 'default';
   @Input() fieldsList: string[] = [];
   @Output() selectedDrowpdownValue: EventEmitter<string> = new EventEmitter();
   constructor() {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['fieldsList']) {
+      this.onSelectValue(changes['fieldsList'].currentValue[0]);
+    }
+  }
+
   ngOnInit(): void {}
 
-  onSelectValue(matValue: any): void{
-    this.selectedDrowpdownValue.emit(matValue.value);
+  onSelectValue(matValue: any): void {
+    if(this.fieldsList.length > 0){
+      this.selectedDrowpdownValue.emit(matValue);
+    }
+    
   }
 }
