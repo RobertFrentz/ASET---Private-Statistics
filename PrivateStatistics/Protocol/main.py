@@ -22,10 +22,6 @@ random_seed = obiect.gen_random_seed(n, s)
 delta_patrat = pow(math.factorial(4), 2)
 values = [1, 2, 3, 4]
 statistic = StatisticalFunctions(values, n, g, random_seed, s, shares, obiect, delta_patrat)
-print(statistic.mean())
-print(statistic.standard_deviation())
-print(statistic.variance())
-print(statistic.standard_error())
 # a = 30
 # b = 30
 # a_encrypted = obiect.criptarePaillier(a, n, g, random_seed, s)

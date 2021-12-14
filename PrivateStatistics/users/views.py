@@ -54,19 +54,17 @@ class Statistics(View):
         pass
 
     def get(self, request):
-        hospital_name = request.GET.get('name', '')
-        patient_attributes = request.GET.getlist('fields', '')
-        statistical_function = request.GET.get('function', '')
-        print(statistical_function)
-
-        if statistical_function == Statistic.Mean.value:
-            response = statistic.mean()
-        elif statistical_function == Statistic.Variance.value:
-            response = statistic.variance()
-        elif statistical_function == Statistic.StandardDeviation.value:
-            response = statistic.standard_deviation()
-        elif statistical_function == Statistic.StandardError.value:
-            response = statistic.standard_error()
-        else:
-            return JsonResponse({'message': 'There is no such statistical function available'}, status=400)
-        return JsonResponse({'functionName': f'{statistical_function}', 'functionValue': f'{response}'}, status=200)
+        hospitals = request.GET.getlist('hospitals', '')
+        patient_attributes = request.GET.get('field', '')
+        functions = request.GET.getlist('functions', '')
+        print(functions)
+        response = dict()
+        if Statistic.Mean.value in functions or len(functions) == 0:
+            response["Mean"] = statistic.mean()
+        if Statistic.Variance.value in functions or len(functions) == 0:
+            response["Variance"] = statistic.variance()
+        if Statistic.StandardDeviation.value in functions or len(functions) == 0:
+            response["StandardDeviation"] = statistic.standard_deviation()
+        if Statistic.StandardError.value in functions or len(functions) == 0:
+            response["StandardError"] = statistic.standard_error()
+        return JsonResponse(response, status=200)
