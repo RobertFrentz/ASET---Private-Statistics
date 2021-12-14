@@ -1,4 +1,6 @@
 export interface StatisticalResult {
-  functionName: string;
-  functionValue: number;
+  mean: number;
+  standardDeviation: number;
+  variance: number;
+  standardError: number;
 }

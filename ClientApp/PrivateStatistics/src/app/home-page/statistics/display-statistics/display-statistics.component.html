@@ -1,8 +1,14 @@
 <div class="display-statistics-container">
-  <div *ngFor="let statistic of statistics"
-        class="display-statistic-line">
-    <app-display-statistic-line [statisticName]="statistic.functionName"
-                                [statisticValue]="statistic.functionValue">
+    <app-display-statistic-line statisticName="mean"
+                                [statisticValue]="statistics.mean">
     </app-display-statistic-line>
-  </div>
+    <app-display-statistic-line statisticName="standardDeviation"
+                                [statisticValue]="statistics.standardDeviation">
+    </app-display-statistic-line>
+    <app-display-statistic-line statisticName="variance"
+                                [statisticValue]="statistics.variance">
+    </app-display-statistic-line>
+    <app-display-statistic-line statisticName="standardError"
+                                [statisticValue]="statistics.standardError">
+    </app-display-statistic-line>
 </div>

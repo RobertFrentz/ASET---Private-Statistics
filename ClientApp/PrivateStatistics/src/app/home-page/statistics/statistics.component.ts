@@ -20,7 +20,12 @@ export class StatisticsComponent implements OnInit, OnChanges {
   @Input() selectedHospitals: Hospital[] = [];
 
   fieldsList: string[] = [];
-  statistics: StatisticalResult[] = [];
+  statistics: StatisticalResult = {
+    mean: 10,
+    standardDeviation: 20,
+    variance: 30,
+    standardError: 40,
+  };
   statisticsHistory: StatisticsHistory[] = [];
   label = 'Select statistical field';
   isLoadingStatistics = false;
@@ -42,13 +47,13 @@ export class StatisticsComponent implements OnInit, OnChanges {
 
   computeStatisticalFunctions(field: string): void {
     this.isLoadingStatistics = true;
-      this.statisticsService
-        .getStatisticsResults(this.selectedHospitals, field)
-        .pipe(first())
-        .subscribe((statistics) => {
-          this.statistics = statistics;
-          this.isLoadingStatistics = false;
-        });
+    this.statisticsService
+      .getStatisticsResults(this.selectedHospitals, field)
+      .pipe(first())
+      .subscribe((statistics) => {
+        this.statistics = statistics;
+        this.isLoadingStatistics = false;
+      });
   }
 
   getStatisticsHistory(): void {

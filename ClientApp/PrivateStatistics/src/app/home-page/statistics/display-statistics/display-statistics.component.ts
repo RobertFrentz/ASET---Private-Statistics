@@ -7,7 +7,12 @@ import { StatisticalResult } from 'src/app/Types/statistical-result';
   styleUrls: ['./display-statistics.component.scss'],
 })
 export class DisplayStatisticsComponent implements OnInit {
-  @Input() statistics: StatisticalResult[] = [];
+  @Input() statistics: StatisticalResult = {
+    mean: 10,
+    standardDeviation: 20,
+    variance: 30,
+    standardError: 40,
+  };
 
   constructor() {}
 
