@@ -1,8 +1,8 @@
 import math
 import unittest
-from StatisticalFunctions import StatisticalFunctions
-from CriptosSistemPaillier import CriptosistPaillier
-from TCR import TCR
+from Protocol.StatisticalFunctions import StatisticalFunctions
+from Protocol.CriptosSistemPaillier import CriptosistPaillier
+from Protocol.TCR import TCR
 
 
 class UnitTestStatisticalFunctions(unittest.TestCase):

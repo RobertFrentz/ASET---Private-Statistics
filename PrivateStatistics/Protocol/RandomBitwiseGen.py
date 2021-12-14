@@ -1,5 +1,5 @@
 import random
-from CriptosSistemPaillier import CriptosistPaillier
+from Protocol.CriptosSistemPaillier import CriptosistPaillier
 import sys
 
 

@@ -1,7 +1,7 @@
 import math
 
-from RandomBitwiseGen import RandomBitwiseGeneration
-from ModuloReduction import ModuloReduction
+from Protocol.RandomBitwiseGen import RandomBitwiseGeneration
+from Protocol.ModuloReduction import ModuloReduction
 
 
 def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat, nr_serv, k):

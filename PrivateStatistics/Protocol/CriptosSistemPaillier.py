@@ -1,11 +1,11 @@
 import math
 import random
 
-from Cryptodome.Util import number
+from Crypto.Util import number
 import fractions
 
-from CryptoAspects.paillier_aspect import paillier_aspect
-from TCR import TCR
+from Protocol.CryptoAspects.paillier_aspect import paillier_aspect
+from Protocol.TCR import TCR
 
 
 class CriptosistPaillier:
@@ -33,7 +33,6 @@ class CriptosistPaillier:
         g = n + 1
         u = 0
 
-
         while not este_inversabil:
 
             u = pow(g, cmmmc_p_q, n_at_s)
@@ -59,7 +58,7 @@ class CriptosistPaillier:
 
         return r
 
-    #@paillier_aspect
+    # @paillier_aspect
     def criptarePaillier(self, plaintext, n, g, random_seed, s):
 
         n_at_s = pow(n, s)
@@ -67,7 +66,7 @@ class CriptosistPaillier:
 
         return (pow(g, plaintext, n_at_s_p1) * pow(random_seed, n_at_s, n_at_s_p1)) % n_at_s_p1
 
-    #@paillier_aspect
+    # @paillier_aspect
     def decriptarePaillier(self, share, criptotext, nr_serv, n, s):
 
         delta = math.factorial(nr_serv)

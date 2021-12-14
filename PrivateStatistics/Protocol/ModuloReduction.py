@@ -1,6 +1,6 @@
 import random
 
-from CriptosSistemPaillier import CriptosistPaillier
+from Protocol.CriptosSistemPaillier import CriptosistPaillier
 
 
 class ModuloReduction:

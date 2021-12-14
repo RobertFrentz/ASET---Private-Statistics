@@ -1,7 +1,7 @@
 import math
 
-import test_main
-from CriptosSistemPaillier import CriptosistPaillier
+from Protocol import test_main
+from Protocol.CriptosSistemPaillier import CriptosistPaillier
 
 
 class StatisticalFunctions:

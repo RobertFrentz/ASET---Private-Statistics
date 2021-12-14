@@ -1,9 +1,9 @@
 import math
 import unittest
 from primePy import primes
-from TCR import TCR
+from Protocol.TCR import TCR
 
-from CriptosSistemPaillier import CriptosistPaillier as CP
+from Protocol.CriptosSistemPaillier import CriptosistPaillier as CP
 class UnitTestPaillier(unittest.TestCase):
 
     obj = CP()

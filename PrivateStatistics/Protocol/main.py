@@ -1,9 +1,8 @@
 import math
-
-import test_main
-from StatisticalFunctions import StatisticalFunctions
-from TCR import TCR
-from CriptosSistemPaillier import CriptosistPaillier
+from Protocol import StatisticalFunctions
+from Protocol.StatisticalFunctions import StatisticalFunctions
+from Protocol.TCR import TCR
+from Protocol.CriptosSistemPaillier import CriptosistPaillier
 
 obiect = CriptosistPaillier()
 tcr = TCR()
@@ -21,7 +20,7 @@ k = 3
 shares = obiect.split_shares(nr_serv, n, d, m, k, s)
 random_seed = obiect.gen_random_seed(n, s)
 delta_patrat = pow(math.factorial(4), 2)
-values = [1, 2,3, 4]
+values = [1, 2, 3, 4]
 statistic = StatisticalFunctions(values, n, g, random_seed, s, shares, obiect, delta_patrat)
 print(statistic.mean())
 print(statistic.standard_deviation())
