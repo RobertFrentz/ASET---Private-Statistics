@@ -1,7 +1,7 @@
 import math
 import random
 
-from Cryptodome.Util import number
+from Crypto.Util import number
 import fractions
 
 from CryptoAspects.paillier_aspect import paillier_aspect
@@ -158,41 +158,4 @@ class CriptosistPaillier:
         return (exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s)
 
 
-# obiect = CriptosistPaillier()
-# tcr = TCR()
-# parametrii = obiect.setup(1)
-# n = parametrii[0]
-# m = parametrii[5]
-# u = parametrii[4]
-# g = n + 1
-# s = 1
-# exp = [0, 1]
-# m_list = [m, pow(n, s)]
-# d = tcr.chinese_remainder(m_list, exp)
-# k = 3
-# shares = obiect.split_shares(4, n, d, m, k, s)
-# random_seed = obiect.gen_random_seed(n, s)
-# delta_patrat = pow(math.factorial(4), 2)
-# ciphertext = obiect.criptarePaillier(10, n, g, random_seed, s)
-# print(obiect.decryption_sharing(ciphertext, n, s, shares, delta_patrat, 4))
-"""
-for share in shares:
-    print("Share: " + str(share))
-M = 124121
-cryptotext = obiect.criptarePaillier(M, n, g, obiect.gen_random_seed(n,s), s)
-c_1 = obiect.decriptarePaillier(shares[0], cryptotext, 3, n, s)
-c_2 = obiect.decriptarePaillier(shares[1], cryptotext, 3,  n, s)
-c_3 = obiect.decriptarePaillier(shares[2], cryptotext, 3,  n, s)
-c_4 = obiect.decriptarePaillier(shares[3], cryptotext, 3,  n, s)
-delta_patrat = pow(math.factorial(3), 2)
-print("Criptotext: " + str(cryptotext))
 
-c_prim = obiect.c_prim_calculation(3, [1, 2, 3], [c_1, c_2, c_3], n, s)
-
-print("C_prim: " + str(c_prim))
-print("Verificare: " + str(pow(cryptotext, 4 * delta_patrat * d, pow(n, s + 1))))
-print("Verificare 2: " + str(pow(n + 1, 4 * delta_patrat * M, pow(n, s + 1))))
-exponent = obiect.exponent_calculation(n, c_prim, s)
-
-print((exponent * pow(4 * delta_patrat, -1, pow(n, s))) % pow(n, s))
-"""
