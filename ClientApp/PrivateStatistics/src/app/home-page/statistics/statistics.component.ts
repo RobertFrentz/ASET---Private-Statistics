@@ -20,18 +20,13 @@ export class StatisticsComponent implements OnInit, OnChanges {
   @Input() selectedHospitals: Hospital[] = [];
 
   fieldsList: string[] = [];
-  statistics: StatisticalResult = {
-    mean: 10,
-    standardDeviation: 20,
-    variance: 30,
-    standardError: 40,
-  };
+  statistics: StatisticalResult;
   statisticsHistory: StatisticsHistory[] = [];
   label = 'Select statistical field';
   isLoadingStatistics = false;
   isLoadingHistory = false;
 
-  constructor(private readonly statisticsService: StatisticsService) {}
+  constructor(readonly statisticsService: StatisticsService) {}
 
   ngOnInit(): void {}
 
@@ -58,7 +53,6 @@ export class StatisticsComponent implements OnInit, OnChanges {
 
   getStatisticsHistory(): void {
     this.isLoadingHistory = true;
-    setTimeout(() => {
       this.statisticsService
         .getStatisticsHistory(this.selectedHospitals)
         .pipe(first())
@@ -66,6 +60,5 @@ export class StatisticsComponent implements OnInit, OnChanges {
           this.statisticsHistory = history;
           this.isLoadingHistory = false;
         });
-    }, 2000);
   }
 }

@@ -25,7 +25,7 @@ export class MultiselectDropdownComponent implements OnInit, OnDestroy {
   isSelectionPanelClosed = true;
 
   constructor(
-    private readonly multiSelectDropdownService: MultiSelectDropdownService
+    readonly multiSelectDropdownService: MultiSelectDropdownService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +33,6 @@ export class MultiselectDropdownComponent implements OnInit, OnDestroy {
       .getHospitals()
       .subscribe((hospitalResponse) => {
         this.hospitalsList = hospitalResponse;
-        //this.hospitalsFormControl.setValue(this.hospitalsList[0]);
       });
   }
 
