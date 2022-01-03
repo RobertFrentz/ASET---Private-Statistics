@@ -7,9 +7,8 @@ from Protocol.CriptosSistemPaillier import CriptosistPaillier
 class StatisticalFunctions:
     paillier_encrypt = CriptosistPaillier()
 
-    def __init__(self, values_list, n, g, random_seed, s, shares, obiect, delta_patrat):
-        self.values_encrypted = []
-        self.values_list = values_list
+    def __init__(self, values_encrypted, n, g, random_seed, s, shares, obiect, delta_patrat, l_x):
+        self.values_encrypted = values_encrypted
         self.n = n
         self.g = g
         self.random_seed = random_seed
@@ -19,22 +18,16 @@ class StatisticalFunctions:
         self.delta_patrat = delta_patrat
         self.nr_serv = 4
         self.k = 3
-        self.encrypt_values()
         self.modulus = pow(self.n, self.s + 1)
-        self.number_of_elements = len(self.values_list)
-
-    def encrypt_values(self):
-        for value in self.values_list:
-            encrypt = self.paillier_encrypt.criptarePaillier(value, self.n, self.g, self.random_seed, self.s)
-            self.values_encrypted.append(encrypt)
-        return self.values_encrypted
+        self.number_of_elements = len(self.values_encrypted)
+        self.l_x = l_x
 
     def mean(self):
         product = math.prod(self.values_encrypted) % self.modulus
         values_after_operations = test_main.calculate_function(product, self.number_of_elements, self.n, self.g,
                                                                self.random_seed, self.s,
                                                                self.shares,
-                                                               self.obiect, self.delta_patrat, self.nr_serv, self.k)
+                                                               self.obiect, self.delta_patrat, self.nr_serv, self.k, self.l_x)
 
         return (values_after_operations[0] * self.number_of_elements + values_after_operations[
             1]) / self.number_of_elements
@@ -59,7 +52,7 @@ class StatisticalFunctions:
                                                                self.number_of_elements * (self.number_of_elements - 1),
                                                                self.n,
                                                                self.g, self.random_seed, self.s, self.shares,
-                                                               self.obiect, self.delta_patrat, self.nr_serv, self.k)
+                                                               self.obiect, self.delta_patrat, self.nr_serv, self.k, self.l_x)
         return (values_after_operations[0] * (self.number_of_elements * (self.number_of_elements - 1)) +
                 values_after_operations[
                     1]) / (self.number_of_elements * (self.number_of_elements - 1))

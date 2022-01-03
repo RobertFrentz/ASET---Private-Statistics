@@ -4,7 +4,7 @@ from Protocol.RandomBitwiseGen import RandomBitwiseGeneration
 from Protocol.ModuloReduction import ModuloReduction
 
 
-def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat, nr_serv, k):
+def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat, nr_serv, k, l_x):
     while True:
         Serv_1 = RandomBitwiseGeneration(n, g, random_seed, s, shares[0], nr_serv, k)
         Serv_2 = RandomBitwiseGeneration(n, g, random_seed, s, shares[1], nr_serv, k)
@@ -33,9 +33,6 @@ def calculate_function(x, a, n, g, random_seed, s, shares, obiect, delta_patrat,
 
     modulRed = ModuloReduction(n, g, random_seed, s, nr_serv, k, r, x, a)
     l_s = modulRed.generate_l_s()
-
-    # aici e bugul dragilor, aparent noi folosim l_x ca lungimea criptarii, si nu a lui x :(
-    l_x = int.bit_length(1+2+3+4)
 
     S_i_list = []
     for i in range(0, 4):
