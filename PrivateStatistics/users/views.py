@@ -73,9 +73,9 @@ class Statistics(View):
         patientsRepository = PatientsRepository()
         patients = patientsRepository.get_patients(hospitals)
         attribute_values, bitlengths = patientsRepository.get_attribute_values(patients, patient_attribute)
-        statistic = StatisticalFunctions(attribute_values, n, g, random_seed, s, shares, obiect, delta_patrat, 20)
+        statistic = StatisticalFunctions(attribute_values, n, g, random_seed, s, shares, obiect, delta_patrat, 14)
         if Statistic.Mean.value in functions or len(functions) == 0:
-            statistic.l_x = 20
+            statistic.l_x = 7
             response["Mean"] = statistic.mean()
         if Statistic.Variance.value in functions or len(functions) == 0:
             response["Variance"] = statistic.variance()

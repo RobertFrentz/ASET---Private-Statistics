@@ -1,6 +1,6 @@
 export interface StatisticalResult {
-  mean: number;
-  standardDeviation: number;
-  variance: number;
-  standardError: number;
+  Mean: number;
+  StandardDeviation: number;
+  Variance: number;
+  StandardError: number;
 }

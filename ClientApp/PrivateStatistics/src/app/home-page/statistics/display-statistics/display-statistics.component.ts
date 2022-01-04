@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { StatisticalResult } from 'src/app/Types/statistical-result';
 
 @Component({
@@ -7,12 +13,7 @@ import { StatisticalResult } from 'src/app/Types/statistical-result';
   styleUrls: ['./display-statistics.component.scss'],
 })
 export class DisplayStatisticsComponent implements OnInit {
-  @Input() statistics: StatisticalResult = {
-    mean: 10,
-    standardDeviation: 20,
-    variance: 30,
-    standardError: 40,
-  };
+  @Input() statistics: StatisticalResult;
 
   constructor() {}
 

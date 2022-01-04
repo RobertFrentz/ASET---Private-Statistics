@@ -29,8 +29,8 @@ class StatisticalFunctions:
                                                                self.shares,
                                                                self.obiect, self.delta_patrat, self.nr_serv, self.k, self.l_x)
 
-        return (values_after_operations[0] * self.number_of_elements + values_after_operations[
-            1]) / self.number_of_elements
+        return round((values_after_operations[0] * self.number_of_elements + values_after_operations[
+            1]) / self.number_of_elements,4)
 
     def variance(self):
 
@@ -53,14 +53,14 @@ class StatisticalFunctions:
                                                                self.n,
                                                                self.g, self.random_seed, self.s, self.shares,
                                                                self.obiect, self.delta_patrat, self.nr_serv, self.k, self.l_x)
-        return (values_after_operations[0] * (self.number_of_elements * (self.number_of_elements - 1)) +
+        return round((values_after_operations[0] * (self.number_of_elements * (self.number_of_elements - 1)) +
                 values_after_operations[
-                    1]) / (self.number_of_elements * (self.number_of_elements - 1))
+                    1]) / (self.number_of_elements * (self.number_of_elements - 1)),4)
 
     def standard_deviation(self):
-        return math.sqrt(self.variance())
+        return round(math.sqrt(self.variance()),4)
 
     def standard_error(self):
         s=self.standard_deviation()
         square_n=math.sqrt(self.number_of_elements)
-        return s / square_n
+        return round(s / square_n,4)

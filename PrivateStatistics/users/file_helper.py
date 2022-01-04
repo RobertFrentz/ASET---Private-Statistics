@@ -1,5 +1,5 @@
 def read_paillier_setup():
-    file = open(r'E:\Robert\Master\ASET---Private-Statistics\PrivateStatistics\users\setup', 'r')
+    file = open(r'D:\Master\ASET---Private-Statistics\PrivateStatistics\users\setup', 'r')
     line = file.readline()
     line_values = line.split(' ')
     n = int(line_values[0])
