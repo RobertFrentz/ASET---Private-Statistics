@@ -47,3 +47,16 @@ class PatientsRepository:
                 attribute_values.append(int(patient.height))
                 bitlengths.append(patient.height_bit_length)
         return attribute_values, bitlengths
+
+    def get_hospitals_attributes(self):
+        hospitals = Patient.objects.values('hospital').distinct()
+        response = []
+        fields = ["Age", "Height", "Weight"]
+        for hospital in hospitals:
+            hospital_with_attributes = {
+                "name": hospital['hospital'],
+                "fields": fields
+            }
+            response.append(hospital_with_attributes)
+        print(response)
+        return response
