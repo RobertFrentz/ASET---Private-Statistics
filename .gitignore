@@ -5,8 +5,5 @@ PrivateStatistics/users/__pycache__
 PrivateStatistics/users/aspects/__pycache__
 PrivateStatistics/users/migrations/__pycache__
 PrivateStatistics/users/monitors/__pycache__
-﻿*/envv
-*/__pycache__
-__pycache__
-env
-Protocol/.idea
+*.pyc
+Protocol/__pycache__

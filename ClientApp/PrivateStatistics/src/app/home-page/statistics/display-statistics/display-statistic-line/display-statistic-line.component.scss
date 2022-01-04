@@ -1,16 +1,14 @@
-.statistic-display-line{
-  width: 350px;
+.statistic-display-line {
+  width: 700px;
   span {
     font-size: 20px;
     color: black;
   }
 
-  span:last-child{
+  span:last-child {
     float: right;
   }
 }
-
-
 
 // span:nth-of-type(1){
 //   padding-top: 30px;

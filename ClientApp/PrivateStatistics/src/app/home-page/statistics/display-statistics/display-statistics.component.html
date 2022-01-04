@@ -1,14 +1,26 @@
 <div class="display-statistics-container">
-    <app-display-statistic-line statisticName="mean"
-                                [statisticValue]="statistics.mean">
-    </app-display-statistic-line>
-    <app-display-statistic-line statisticName="standardDeviation"
-                                [statisticValue]="statistics.standardDeviation">
-    </app-display-statistic-line>
-    <app-display-statistic-line statisticName="variance"
-                                [statisticValue]="statistics.variance">
-    </app-display-statistic-line>
-    <app-display-statistic-line statisticName="standardError"
-                                [statisticValue]="statistics.standardError">
-    </app-display-statistic-line>
+  <app-display-statistic-line
+    statisticName="mean"
+    [statisticValue]="statistics.mean"
+    class="display-statistics-container"
+  >
+  </app-display-statistic-line>
+  <app-display-statistic-line
+    statisticName="standardDeviation"
+    [statisticValue]="statistics.standardDeviation"
+    class="display-statistics-container"
+  >
+  </app-display-statistic-line>
+  <app-display-statistic-line
+    statisticName="variance"
+    [statisticValue]="statistics.variance"
+    class="display-statistics-container"
+  >
+  </app-display-statistic-line>
+  <app-display-statistic-line
+    statisticName="standardError"
+    [statisticValue]="statistics.standardError"
+    class="display-statistics-container"
+  >
+  </app-display-statistic-line>
 </div>
