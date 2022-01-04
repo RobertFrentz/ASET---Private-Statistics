@@ -101,5 +101,13 @@ class Patients(View):
             hospital = hospitals[random.randint(0, 3)]
             patient_dto = PatientDto(first_name, last_name, age, weight, height, hospital)
             patients.append(patient_dto)
-        patientsRepository = PatientsRepository()
-        patientsRepository.add_patients(patients)
+        patients_repository = PatientsRepository()
+        patients_repository.add_patients(patients)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Hospitals(View):
+    def get(self, request):
+        patients_repository = PatientsRepository()
+        response = patients_repository.get_hospitals_attributes()
+        return JsonResponse(response, safe=False, status=200)
