@@ -1,5 +1,9 @@
+import pathlib
+
+
 def read_paillier_setup():
-    file = open(r'E:\Robert\Master\ASET---Private-Statistics\PrivateStatistics\users\setup', 'r')
+    current_path = pathlib.Path(__file__).parent / 'setup'
+    file = open(current_path, 'r')
     line = file.readline()
     line_values = line.split(' ')
     n = int(line_values[0])
