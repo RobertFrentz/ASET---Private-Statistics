@@ -2,9 +2,6 @@ import random
 
 from django.views import View
 from django.http import JsonResponse
-
-from Protocol.CriptosSistemPaillier import CriptosistPaillier
-from Protocol.StatisticalFunctions import StatisticalFunctions
 from users.aspects.users_aspect import users_aspect
 from users.dtos.patient_dto import PatientDto
 from users.models import User
@@ -14,11 +11,10 @@ import json
 
 from users.patients_repository import PatientsRepository
 from users.statistics import Statistic
+from users.strategy_factory import StrategyFactory
 from users.users_helper import UsersHelper
 
 from faker import Faker
-
-from users.file_helper import read_paillier_setup
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -68,21 +64,24 @@ class Statistics(View):
         patient_attribute = request.GET.get('field', '')
         functions = request.GET.getlist('functions', '')
         response = dict()
-        n, g, random_seed, s, shares, delta_patrat = read_paillier_setup()
-        obiect = CriptosistPaillier()
         patientsRepository = PatientsRepository()
         patients = patientsRepository.get_patients(hospitals)
         attribute_values, bitlengths = patientsRepository.get_attribute_values(patients, patient_attribute)
-        statistic = StatisticalFunctions(attribute_values, n, g, random_seed, s, shares, obiect, delta_patrat, 14)
-        if Statistic.Mean.value in functions or len(functions) == 0:
-            statistic.l_x = 7
-            response["Mean"] = statistic.mean()
-        if Statistic.Variance.value in functions or len(functions) == 0:
-            response["Variance"] = statistic.variance()
-        if Statistic.StandardDeviation.value in functions or len(functions) == 0:
-            response["StandardDeviation"] = statistic.standard_deviation()
-        if Statistic.StandardError.value in functions or len(functions) == 0:
-            response["StandardError"] = statistic.standard_error()
+        # if Statistic.Mean.value in functions or len(functions) == 0:
+        #     statistic.l_x = 7
+        #     response["Mean"] = statistic.mean()
+        # if Statistic.Variance.value in functions or len(functions) == 0:
+        #     response["Variance"] = statistic.variance()
+        # if Statistic.StandardDeviation.value in functions or len(functions) == 0:
+        #     response["StandardDeviation"] = statistic.standard_deviation()
+        # if Statistic.StandardError.value in functions or len(functions) == 0:
+        #     response["StandardError"] = statistic.standard_error()
+        if len(functions) == 0:
+            functions = ['Mean', 'Variance', 'StandardDeviation', 'StandardError']
+        for function in functions:
+            strategy_factory = StrategyFactory()
+            statistic_strategy = strategy_factory.get_strategy(Statistic[function])
+            response[function] = statistic_strategy.compute_statistic(attribute_values)
         return JsonResponse(response, status=200)
 
 
