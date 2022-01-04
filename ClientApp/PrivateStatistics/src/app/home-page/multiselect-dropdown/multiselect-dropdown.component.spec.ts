@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { Hospital } from 'src/app/Types/hospital';
@@ -21,9 +22,9 @@ describe('MultiselectDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MultiselectDropdownComponent ]
-    })
-    .compileComponents();
+      declarations: [MultiselectDropdownComponent],
+      imports: [HttpClientModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

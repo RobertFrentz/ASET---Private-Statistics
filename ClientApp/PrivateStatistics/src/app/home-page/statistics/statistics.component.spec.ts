@@ -7,10 +7,10 @@ import { StatisticsHistory } from 'src/app/Types/statistics-history';
 import { StatisticsComponent } from './statistics.component';
 
 const statisticalResultMock: StatisticalResult = {
-  mean: 15,
-  standardDeviation: 10,
-  standardError: 15,
-  variance: 30,
+  Mean: 15,
+  StandardDeviation: 10,
+  StandardError: 15,
+  Variance: 30,
 };
 
 const statisticalHistoryMock: StatisticsHistory[] = [{
@@ -18,7 +18,7 @@ const statisticalHistoryMock: StatisticsHistory[] = [{
   mean: 15,
   standardDeviation: 20,
   variance: 17,
-  covariance: 24
+  standardError: 24
 }];
 
 describe('StatisticsComponent', () => {

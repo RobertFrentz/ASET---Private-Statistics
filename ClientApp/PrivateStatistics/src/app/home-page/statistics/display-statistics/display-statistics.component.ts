@@ -7,9 +7,15 @@ import { StatisticalResult } from 'src/app/Types/statistical-result';
   styleUrls: ['./display-statistics.component.scss'],
 })
 export class DisplayStatisticsComponent implements OnInit {
-  @Input() statistics: StatisticalResult;
+  @Input() statistics: StatisticalResult = {
+      Mean: 0,
+      StandardDeviation: 0,
+      Variance: 0,
+      StandardError: 0
+    };
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

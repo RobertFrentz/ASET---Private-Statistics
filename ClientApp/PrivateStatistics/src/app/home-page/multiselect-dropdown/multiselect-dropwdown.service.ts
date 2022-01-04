@@ -1,13 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Hospital } from 'src/app/Types/hospital';
-import HttpResponse from '../../Configurations/hospital-response-config.json';
+
+const hospitalEndpoint = 'http://localhost:8000/hospitals';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MultiSelectDropdownService {
+
+  constructor(private readonly httpClient: HttpClient) {}
+
   getHospitals(): Observable<Hospital[]> {
-    return of(HttpResponse);
+    return this.httpClient.get<Hospital[]>(hospitalEndpoint);
   }
 }

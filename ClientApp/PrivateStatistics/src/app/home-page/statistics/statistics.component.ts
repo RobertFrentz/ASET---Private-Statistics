@@ -58,12 +58,12 @@ export class StatisticsComponent implements OnInit, OnChanges {
 
   getStatisticsHistory(): void {
     this.isLoadingHistory = true;
-    this.statisticsService
-      .getStatisticsHistory(this.selectedHospitals)
-      .pipe(first())
-      .subscribe((history) => {
-        this.statisticsHistory = history;
-        this.isLoadingHistory = false;
-      });
+      this.statisticsService
+        .getStatisticsHistory(this.selectedHospitals)
+        .pipe(first())
+        .subscribe((history) => {
+          this.statisticsHistory = history;
+          this.isLoadingHistory = false;
+        });  
   }
 }

@@ -10,7 +10,7 @@ const statisticalHistoryMock: StatisticsHistory[] = [
     mean: 15,
     standardDeviation: 20,
     variance: 17,
-    covariance: 24,
+    standardError: 24,
   },
 ];
 

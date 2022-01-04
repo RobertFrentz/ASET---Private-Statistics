@@ -7,6 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-select-dropdown',
@@ -29,6 +30,10 @@ export class SelectDropdownComponent implements OnInit, OnChanges {
 
   onSelectValue(matValue: any): void {
     if(this.fieldsList.length > 0){
+      if(matValue.value !== undefined){
+        this.selectedDrowpdownValue.emit(matValue.value);
+        return;
+      }
       this.selectedDrowpdownValue.emit(matValue);
     }
     
