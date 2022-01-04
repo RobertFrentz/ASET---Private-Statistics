@@ -1,18 +1,18 @@
 [
   {
     "name": "Arcadia",
-    "fields": [ "Age","BloodType"]
+    "fields": [ "Age","Weight","Height"]
   },
   {
     "name": "Spiridon",
-    "fields": ["Age", "BloodType", "Tension"]
+    "fields": ["Age", "Weight", "Height"]
   },
   {
-    "name": "Tineretului",
-    "fields": ["Age", "BloodType"]
+    "name": "Spiru Haret",
+    "fields": ["Age", "Weight", "Height"]
   },
   {
     "name": "Saint Marie",
-    "fields": ["Age", "BloodType"]
+    "fields": ["Age", "Weight", "Height"]
   }
 ]

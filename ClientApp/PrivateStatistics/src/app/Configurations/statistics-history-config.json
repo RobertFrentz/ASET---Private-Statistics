@@ -2,36 +2,36 @@
   {
     "statisticalField": "Age",
     "mean": 13,
-    "standardDeviation": 115,
+    "standardError": 115,
     "variance": 51,
-    "covariance": 255
+    "standardDeviation": 255
   },
   {
     "statisticalField": "BloodType",
     "mean": 14,
-    "standardDeviation": 116,
+    "standardError": 116,
     "variance": 59,
-    "covariance": 325
+    "standardDeviation": 325
   },
   {
     "statisticalField": "Age",
     "mean": 15,
-    "standardDeviation": 117,
+    "standardError": 117,
     "variance": 35,
-    "covariance": 125
+    "standardDeviation": 125
   },
   {
     "statisticalField": "BloodType",
     "mean": 16,
-    "standardDeviation": 118,
+    "standardError": 118,
     "variance": 25,
-    "covariance": 255
+    "standardDeviation": 255
   },
   {
     "statisticalField": "Age",
     "mean": 17,
-    "standardDeviation": 119,
+    "standardError": 119,
     "variance": 15,
-    "covariance": 295
+    "standardDeviation": 295
   }
 ]

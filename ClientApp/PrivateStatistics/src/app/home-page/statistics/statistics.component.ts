@@ -22,9 +22,9 @@ export class StatisticsComponent implements OnInit, OnChanges {
   fieldsList: string[] = [];
   statistics: StatisticalResult = {
     Mean: 0,
-    StandardDeviation: 0,
-    Variance: 0,
     StandardError: 0,
+    Variance: 0,
+    StandardDeviation: 0,
   };
   statisticsHistory: StatisticsHistory[] = [];
   label = 'Select statistical field';

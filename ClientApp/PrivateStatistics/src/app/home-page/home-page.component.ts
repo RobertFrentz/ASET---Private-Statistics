@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Hospital } from 'src/app/Types/hospital';
 
 @Component({
@@ -8,10 +9,14 @@ import { Hospital } from 'src/app/Types/hospital';
 })
 export class HomePageComponent implements OnInit {
   selectedHospitalsList: Hospital[] = [];
+  username: String | null = 'user';
 
-  constructor() {}
+  constructor(private readonly activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.username = this.activatedRoute.snapshot.queryParamMap.get('username');
+    this.username = this.username;
+  }
 
   setCurrentHospitals(hospitals: Hospital[]): void {
     this.selectedHospitalsList = hospitals;

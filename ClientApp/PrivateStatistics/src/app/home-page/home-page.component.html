@@ -2,7 +2,7 @@
   <app-multiselect-dropdown (selectedHospitals)="setCurrentHospitals($event)">
   </app-multiselect-dropdown>
   <span class="title"> Private Statistics </span>
-  <app-user-info></app-user-info>
+  <app-user-info [username]="username"> </app-user-info>
 </div>
 <div class="content">
   <app-statistics [selectedHospitals]="selectedHospitalsList"> </app-statistics>

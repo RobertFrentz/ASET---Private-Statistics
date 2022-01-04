@@ -1,7 +1,7 @@
 export interface StatisticsHistory {
   statisticalField: string;
   mean: number;
-  standardDeviation: number;
+  standardError: number;
   variance: number;
-  covariance: number;
+  standardDeviation: number;
 }

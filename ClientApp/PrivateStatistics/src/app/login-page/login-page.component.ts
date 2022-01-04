@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
       .getLoginValidation(username, password)
       .subscribe((response) => {
         if (Object.keys(response).length === 0) {
-          this.router.navigate(['/home']);
+          this.router.navigate([`/home`], {queryParams: { username: username}});
         }
       });
   }

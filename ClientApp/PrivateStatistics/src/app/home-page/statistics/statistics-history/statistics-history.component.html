@@ -26,9 +26,9 @@
     <td mat-cell *matCellDef="let element"> {{element.variance}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="covariance">
-    <th mat-header-cell *matHeaderCellDef> Covariance </th>
-    <td mat-cell *matCellDef="let element"> {{element.covariance}} </td>
+  <ng-container matColumnDef="standardError">
+    <th mat-header-cell *matHeaderCellDef> StandardError </th>
+    <td mat-cell *matCellDef="let element"> {{element.standardError}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

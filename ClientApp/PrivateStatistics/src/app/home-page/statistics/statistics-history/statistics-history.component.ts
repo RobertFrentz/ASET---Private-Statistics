@@ -22,7 +22,7 @@ export class StatisticsHistoryComponent implements OnInit, OnChanges {
     'mean',
     'standardDeviation',
     'variance',
-    'covariance',
+    'standardError',
   ];
 
   dataSource: StatisticsHistoryLine[] = [];
